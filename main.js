@@ -1,10 +1,11 @@
-document.getElementById('formulario').addEventListener('submit', cadastraVeiculo) //Recebe o form e chama o cadastro
+document.getElementById('formulario').addEventListener('submit', cadastraVeiculo)//Recebe o form e chama o cadastro
 
 function cadastraVeiculo(e){
     let modeloCarro = document.getElementById('modeloCarro').value;
     let placaCarro = document.getElementById('placaCarro').value;
     let precoHora = document.getElementById('precoHora').value;
     let horaEntrada = new Date();
+
     carro = {
 		modelo: modeloCarro,
 		placa: placaCarro,
@@ -22,16 +23,28 @@ function cadastraVeiculo(e){
         carros.push(carro);
         localStorage.setItem('patio', JSON.stringify(carros));
     }
+    document.getElementById('formulario').reset();
 
     mostraPatio();
-
     e.preventDefault();
+}
+
+function apagarCarro(placa){
+    let carros = JSON.parse(localStorage.getItem('patio'));
+    for(var i = 0; i < carros.length; i++){
+        if(carros[i].placa == placa){
+            carros.splice(i, 1);
+        }
+
+        localStorage.setItem('patio', JSON.stringify(carros));
+    }
+
+    mostraPatio();
 }
 
 function mostraPatio(){
     let carros = JSON.parse(localStorage.getItem('patio')); //Chamada dos carros que existem no patio
     let patioResultado = document.getElementById('resultados');
-
     patioResultado.innerHTML = '';
 
     for(var i = 0; i < carros.length; i++){
@@ -40,6 +53,9 @@ function mostraPatio(){
         let hora = carros[i].hora;
         let minutos = carros[i].minutos;
 
-        patioResultado.innerHTML += '<tr><td>'+modelo+'</td><td>'+placa+'</td><td>'+hora+' : '+minutos+'</tr>';
+        patioResultado.innerHTML += '<tr><td>'+ modelo +
+                                    '</td><td>'+ placa +
+                                    '</td><td>'+ hora +' : ' + minutos +
+                                    '</td><td><button onclick="apagarCarro(\''+ placa +'\')">Excluir</button></td>'+'</tr>';
     }
 }
