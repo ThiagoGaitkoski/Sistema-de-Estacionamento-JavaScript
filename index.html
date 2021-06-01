@@ -1,67 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Estacionamento JS</title>
-    </head>
+<html>
+<head>
+	<title>Estacionamento JS</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+</head>
+<body onload="mostraPatio()">
 
-    <body onload="mostraPatio()">
-        <main class="container">
-            <header class="header">
-                <h2>Estacionamento JS</h2>
-            </header>
+	<div class="">
+		<h2>Estacionamento JS</h2>
+	</div>
 
-            <div class="form">
-                <form id="formulario">
-                    <div class="form-comp">
-                        <label>Modelo do Veículo:</label>
-                        <input type="text" class="form-input" id="modeloCarro" required placeholder="Digite o modelo do carro...">
-                    </div>
+	<div id="conteudo" class="">
+		<div class="container">
+			<div class="">
+				<form id="formulario">
+					<div id="aviso"></div>
+					<div class="">
+						<label>Modelo do Veículo:</label>
+						<input type="text" class="" name="" id="modeloCarro" placeholder="Digite o modelo do carro...">
+					</div>
+					<div class="">
+						<label>Placa do Veículo:</label>
+						<input type="text" class="" name="" id="placaCarro" placeholder="Digite a placa do carro...">
+					</div>
+					<div class="">
+						<label>Preço por hora</label>
+						<input type="text" class="" name="" id="precoHora" placeholder="Digite o valor por hora...">
+					</div>
+					<button type="submit" class="">Cadastrar</button>
+				</form>
+                <button type="button" id="total" onclick="mostrarTotal()" class="">Mostrar total</button>
+			</div>
 
-                    <div class="form-comp">
-                        <label>Placa do Veículo:</label>
-                        <input type="text" class="form-input" id="placaCarro" required placeholder="Digite a placa do carro...">
-                    </div>
+			<div class="pesquisa">
+				<form class="" accept-charset="utf-8">
+					<div class="">
+						<input type="text" name="" id="procurar" class="">
+						<button type="button" id="btn_pesquisa" onclick="pesquisar()" class="">Pesquisar</button>
+						<button type="button" id="mostra" onclick="mostrarTudo(1)" class="">Mostrar Tudo</button>
+						<button type="button" id="esconde" onclick="escondeTudo()" class="">Esconder Tudo</button>
+					</div>
+				</form>
+			</div>
 
-                    <div class="form-comp">
-                        <label>Preço por hora:</label>
-                        <input type="text" class="form-input" id="precoHora"  required placeholder="Digite o valor por hora...">
-                    </div>
+			<div class="" id="tabela">
+				<div class="">
+					<table class="" >
+						<thead>
+							<tr>
+								<th>Modelo</th>
+								<th>Placa</th>
+								<th>Preço Hora</th>
+								<th>Entrada</th>
+								<th>Finalizar</th>
+								<th>Excluir</th>
+							</tr>
+						</thead>
+						<tbody id="resultados"></tbody>
+					</table>
+				</div>
+			</div>
+			<span id="total"></span> 
 
-                    <button type="submit">Adicionar</button>
-                <form>
-            </div><!--form-->
 
-            <div class="vagas">
-                <p id="ocupadas">Vagas Ocupadas:</p>
-            </div>
-
-            <div class="patio">
-                <p id="patio">Vagas Desocupadas:</p>
-            </div>
-
-            <div class="">
-                <div class="">
-                    <table class="">
-                        <thead>
-                            <tr>
-                                <th>Modelo</th>
-                                <th>Placa</th>
-                                <th>Entrada</th>
-                                <th>Finalizar</th>
-                            </tr>
-                        </thead>
-                        <tbody id="resultados"></tbody>
-                    </table>
-                </div>
-            </div>
-
-        </main>
-
-        <!--SCRIPT-->
-        <script src="main.js"></script>
-    </body>
+		</div>
+	</div>
+	<script src="main.js"></script>
+</body>
 </html>
