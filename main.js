@@ -26,14 +26,22 @@ function cadastraVeiculo(e){
     document.getElementById('formulario').reset();
 
     mostraPatio();
+    console.log(carro);
     e.preventDefault();
 }
 
 function apagarCarro(placa){
     let carros = JSON.parse(localStorage.getItem('patio'));
+    let patioOcupado = document.getElementById('ocupadas');
+    let patioLivre = document.getElementById('patio');
+    let vagaOcupada = 1;
+    let vagaLivre = 9;
+
     for(var i = 0; i < carros.length; i++){
         if(carros[i].placa == placa){
             carros.splice(i, 1);
+            patioLivre.innerHTML  = vagaLivre++;
+            patioOcupado.innerHTML = vagaOcupada--;
         }
 
         localStorage.setItem('patio', JSON.stringify(carros));
@@ -45,7 +53,13 @@ function apagarCarro(placa){
 function mostraPatio(){
     let carros = JSON.parse(localStorage.getItem('patio')); //Chamada dos carros que existem no patio
     let patioResultado = document.getElementById('resultados');
+    let patioOcupado = document.getElementById('ocupadas');
+    let patioLivre = document.getElementById('patio');
+    let vagaOcupada = 1;
+    let vagaLivre = 9;
     patioResultado.innerHTML = '';
+    patioLivre.innerHTML = '';
+    patioOcupado.innerHTML = '';
 
     for(var i = 0; i < carros.length; i++){
         let modelo = carros[i].modelo;
@@ -53,9 +67,8 @@ function mostraPatio(){
         let hora = carros[i].hora;
         let minutos = carros[i].minutos;
 
-        patioResultado.innerHTML += '<tr><td>'+ modelo +
-                                    '</td><td>'+ placa +
-                                    '</td><td>'+ hora +' : ' + minutos +
-                                    '</td><td><button onclick="apagarCarro(\''+ placa +'\')">Excluir</button></td>'+'</tr>';
-    }
+        patioResultado.innerHTML += '<tr><td>'+ modelo +'</td><td>'+ placa +'</td><td>'+ hora +' : ' + minutos + '</td><td><button onclick="apagarCarro(\''+ placa +'\')">Excluir</button></td>'+'</tr>';
+        patioLivre.innerHTML  = vagaLivre--;
+        patioOcupado.innerHTML = vagaOcupada++;
+    }              
 }
