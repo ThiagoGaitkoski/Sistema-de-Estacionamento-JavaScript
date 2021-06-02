@@ -1,3 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: lightgrey;
+    font-family: sans-serif;
+    font-size: 18px;
+    margin-left: 36%;
+    margin-top: 2%;
+    justify-content: center;
+}
+
+input{
+    border-radius: 2px;
+}
+
+.titulo{
+    font-family: sans-serif;
+    color: #380861;
+    margin-left: 7%;
+}
+
+.conteudo{
+    margin-top: 2%;
+    display: inline-block;
+}
+
+.container-form{
+    margin-left: 2%;
+}
+
+.campo{
+    margin-bottom: 1em;
+}
+
+.campo label{
+    margin-bottom: 0.2rem;
+    color: #59429D;
+    display: block;
+}
+
+.group{
+    float: left;
+    margin-right: 1em;
+}
+
+.pesquisa{
+    display: inline-block
+}
+
 tbody td,th{
-    padding-left: 50px;
+    padding-left: 10px;
+}
+
+.botao-cad{
+    height: 30px;
+    width: 100px;
+    background-color:lightgrey;
+}
+
+.botao-cad:hover{
+    background-color: rgba(211, 211, 211, 0.527);
 }

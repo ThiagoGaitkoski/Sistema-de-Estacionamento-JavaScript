@@ -7,7 +7,7 @@ function cadastrarCarro(e){
 	let horaEntrada = new Date();
 
 	// Cria objeto com os dados preenchidos
-	var veiculo = {
+	veiculo = {
 		modelo: modeloCarro,
 		placa: placaCarro,
 		preco: precoHora,
@@ -19,7 +19,7 @@ function cadastrarCarro(e){
 		let veiculos = [];
 		veiculos.push(veiculo);
 		localStorage.setItem('patio', JSON.stringify(veiculos));//transforma em string
-	} else {
+	}else{
 		let veiculos = JSON.parse(localStorage.getItem('patio'));
 		veiculos.push(veiculo);
 		localStorage.setItem('patio', JSON.stringify(veiculos));
@@ -35,16 +35,14 @@ function confirma(placa){
 	if (c) {
 		removeVeiculo(placa);
 		console.log('Carro removido!');
-	} else {
+	}else{
 		console.log('Carro não removido!');
 		return false;
 	}
 }
 
-
 function removeVeiculo(placa){
 	let patio = JSON.parse(localStorage.getItem('patio'));
-
 	for(var i = 0 ; i < patio.length; i++){
 		if(patio[i].placa == placa){
 			patio.splice(i, 1);
@@ -73,7 +71,6 @@ function calculaHoras(placa, preco, horas, minutos){
 
 	if (precoHora == 0){
 		tot = precoMin.toFixed(2);
-		
 	} else {
 		tot = (precoHora + precoMin).toFixed(2);
 	}
@@ -93,8 +90,8 @@ function pesquisar(){
 	veiculos = JSON.parse(localStorage.getItem('patio'));
 	let patioResultado = document.getElementById('resultados');
 
-	for (var i = 0; i < veiculos.length; i++){
-		if (pesq == veiculos[i].placa){
+	for(var i = 0; i < veiculos.length; i++){
+		if(pesq == veiculos[i].placa){
 			let modelo = veiculos[i].modelo;
 			let placa = veiculos[i].placa;
 			let preco = veiculos[i].preco;
@@ -108,12 +105,9 @@ function pesquisar(){
 			'<td><button type="button" class="" onclick="confirma(\'' + placa + '\')">Finalizar</button></td>'+
 			'</tr>';
 			document.getElementById('procurar').style.border= "2px solid green";
-            mostrarTudo(0);
-		}else{
-			document.getElementById('procurar').style.border= "2px solid red";
-			alert('Carro não encontrado');
+			alert('Carro encontrado!');
+			mostrarTudo(0);
 		}
-
 	}
 }
 
@@ -121,7 +115,6 @@ function pesquisar(){
 function mostraPatio(){
 	let veiculos = JSON.parse(localStorage.getItem('patio'));
 	let patioResultado = document.getElementById('resultados');
-
 	patioResultado.innerHTML = '';
 
 	for(var i = 0; i < veiculos.length; i++){

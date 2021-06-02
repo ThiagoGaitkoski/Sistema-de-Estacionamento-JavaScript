@@ -7,28 +7,27 @@
 </head>
 <body onload="mostraPatio()">
 
-	<div class="">
+	<div class="titulo">
 		<h2>Estacionamento JS</h2>
 	</div>
 
-	<div id="conteudo" class="">
+	<div id="conteudo" class="conteudo">
 		<div class="container">
-			<div class="">
-				<form id="formulario">
-					<div id="aviso"></div>
-					<div class="">
-						<label>Modelo do Veículo:</label>
-						<input type="text" class="" name="" id="modeloCarro" placeholder="Digite o modelo do carro...">
+			<div class="conteiner form">
+				<form id="formulario" class="group">
+					<div class="campo">
+						<label><strong>Modelo do Veículo:</strong></label>
+						<input type="text" class="" name="" id="modeloCarro" placeholder="Digite o modelo do carro..." required>
 					</div>
-					<div class="">
-						<label>Placa do Veículo:</label>
-						<input type="text" class="" name="" id="placaCarro" placeholder="Digite a placa do carro...">
+					<div class="campo">
+						<label><strong>Placa do Veículo:</strong></label>
+						<input type="text" class="" name="" id="placaCarro" placeholder="Digite a placa do carro..." required>
 					</div>
-					<div class="">
-						<label>Preço por hora</label>
-						<input type="text" class="" name="" id="precoHora" placeholder="Digite o valor por hora...">
+					<div class="campo">
+						<label><strong>Preço por hora:</strong></label>
+						<input type="text" class="" name="" id="precoHora" placeholder="Digite o valor por hora..." required>
 					</div>
-					<button type="submit" class="">Cadastrar</button>
+					<button type="submit" class="botao-cad">Cadastrar</button>
 				</form>
 			</div>
 
@@ -36,20 +35,20 @@
 				<form class="" accept-charset="utf-8">
 					<div class="">
 						<input type="text" name="" id="procurar" class="">
-						<button type="button" id="btn_pesquisa" onclick="pesquisar()" class="">Pesquisar</button>
-						<button type="button" id="mostra" onclick="mostrarTudo(1)" class="">Mostrar Tudo</button>                
+						<button type="button" id="btn_pesquisa" onclick="pesquisar()" class="botao-pesq">Pesquisar</button>
+						<button type="button" id="mostra" onclick="mostrarTudo(1)" class="botao-show">Mostrar Tudo</button>                
 					</div>
 				</form>
 			</div>
 
-			<div class="" id="tabela">
+			<div class="tabela" id="tabela">
 				<div class="">
 					<table class="" >
 						<thead>
 							<tr>
 								<th>Modelo</th>
 								<th>Placa</th>
-								<th>Preço Hora</th>
+								<th>Preço-Hora</th>
 								<th>Entrada</th>
 								<th>Finalizar</th>
 								<th>Excluir</th>
@@ -60,8 +59,6 @@
 				</div>
 			</div>
 			<span id="total"></span> 
-
-
 		</div>
 	</div>
 	<script src="main.js"></script>
