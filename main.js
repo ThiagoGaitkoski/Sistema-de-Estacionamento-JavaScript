@@ -31,8 +31,8 @@ function cadastrarCarro(e){
 }
 
 function confirma(placa){
-	let c = confirm("Deseja realmente excluir?");
-	if (c) {
+	let c = confirm("Deseja realmente excluir?");	
+	if (c){
 		removeVeiculo(placa);
 		console.log('Carro removido!');
 	}else{
@@ -58,7 +58,7 @@ function calculaHoras(placa, preco, horas, minutos){
 	let valor = parseInt(preco);
 	let hr = parseInt(horas);
 	let min = parseInt(minutos)
-	let total = document.getElementById('total');
+	let total = document.getElementById('total-carro');
 
 	let date = new Date();
 	let horaAtual = parseInt(date.getHours());
@@ -128,7 +128,7 @@ function mostraPatio(){
 		'<td>'+ preco + '</td>' +
 		'<td>'+ hora + ':' + minutos + '</td>' +
 		'<td><button type="button" class="" onclick="calculaHoras(\''+ placa +'\',\''+ preco +'\',\''+ hora +'\',\''+ minutos +'\')">Calcular</button></td>'+
-		'<td><button type="button" class="" onclick="confirma(\'' + placa + '\')" >Finalizar</button></td>'+
+		'<td><button type="button" class="" onclick="confirma(\'' + placa + '\')">Finalizar</button></td>'+
 		'</tr>';
 	}
 }

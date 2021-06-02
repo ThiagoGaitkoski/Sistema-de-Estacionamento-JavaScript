@@ -8,13 +8,15 @@ body{
     background-color: lightgrey;
     font-family: sans-serif;
     font-size: 18px;
-    margin-left: 36%;
+    margin-left: 6%;
     margin-top: 2%;
     justify-content: center;
 }
 
 input{
     border-radius: 2px;
+    height: 25px;
+    width: 200px;
 }
 
 .titulo{
@@ -48,7 +50,8 @@ input{
 }
 
 .pesquisa{
-    display: inline-block
+    display: inline-block;
+    padding-top: 2%;
 }
 
 tbody td,th{
@@ -63,4 +66,16 @@ tbody td,th{
 
 .botao-cad:hover{
     background-color: rgba(211, 211, 211, 0.527);
+}
+
+@media (min-width: 768px){
+    body{
+        margin-left: 20%;
+    }
+}
+
+@media (min-width: 1024px){
+    body{
+        margin-left: 36%;
+    }
 }
